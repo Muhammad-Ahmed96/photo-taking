@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <div>
+    <%= image_tag "profile.png", style: 'position: absolute;width: 400px;height: 400px;left: 35px;' %>
+    <%= image_tag @user.avatar, style: 'height:400px;width:400px' %>
+  </div>
+</p>
