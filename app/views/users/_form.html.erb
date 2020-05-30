@@ -1,55 +1,81 @@
+
+<%= image_tag "logo.png" , width: '300', height: '100'%>
 <%= form_for(@user) do |f| %>
 <div class="parent">
-  <div class="field" style="background-color: rgba(204,204,204,0.5);width: 40%; margin: 50vh 0px auto auto;padding:30px;margin-left:25%">
-    <%= f.label '⭕️🙌, Hi there! Whats your name?*', style: 'margin: auto 40px;font-size:20px' %><br />
+  <div class="field" style="background-color: white;width: 700px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+    <%= f.label '⭕️🙌, Hi there! Whats your name?*', style: 'margin: auto 40px;font-size:25px' %><br />
+    <label style="margin: 0px 40px;color: #8c8787;font-size: 16px;margin-bottom: 10px;">First Name:</label>
     <div style="text-align: center">
-      <%= f.text_field :name, style: 'width: 90%;height: 30px;font-size: 20px;' %>
+      <%= f.text_field :name, style: 'width: 90%;height: 30px;font-size: 20px;padding:4px' %>
     </div>
   </div>
-  <div style="top: -5px;height: 30px;background: red;margin-left: 25%;width: 43.7%;">
-    <div style="text-align:right;display:flex;align-items:center;height:100%;flex-direction:row-reverse;;margin-right:20px">
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
+    <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
       <span class="next" onclick="showNext1(this);">Next</span>
     </div>
   </div>
 </div>
 
 <div class="parent2 hidden">
-  <div class="field" style="background-color: rgba(204,204,204,0.5);width: 40%; margin: 50vh 0px auto auto;padding:30px;margin-left:25%">
-    <label style="margin: auto 40px;font-size:20px">To upload your beautiful face, sfd, we're going to need access to your camera. Select select 'allow' on the next screen to use your camera.</span>
-    <div style="">
-      <div>
+  <div class="field" style="background-color: white;width: 700px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+    <label style="margin: auto 40px;font-size:20px;font-size: 22px;line-height: 30px;">To upload your beautiful face, sfd, we're going to need access to your camera. Select select 'allow' on the next screen to use your camera.</span>
+    <div class="p-radio">
+      <div style="border: solid 1px black;margin-top: 10px;padding-bottom: 12px;cursor:pointer;border-radius:4px" class="rad-div" onclick="add_active_class(this)">
         <input type="radio" class="radio" style="height: 20px;width: 20px;margin-top:10px"> Yes, Will do.
       </div>
     </div>
   </div>
-  <div style="top: -5px;height: 30px;background: red;margin-left: 25%;width: 43.7%;">
-    <div style="text-align:right;display:flex;align-items:center;height:100%;flex-direction:row-reverse;;margin-right:20px">
-      <span  class="next" onclick="showNext2(this);">Next</span>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
+    <div style="display:flex;align-items:center;height:100%;flex-direction:row-reverse;justify-content:space-between;">
+      <span class="next" onclick="showNext2(this);">Next</span>
+      <span class="prev" onclick="showNext2(this);">Previous</span>
     </div>
   </div>
 </div>
 
 <div class="parent3 hidden">
-  <div class="field" style="background-color: rgba(204,204,204,0.5);width: 40%; margin: 14vh 0px auto auto;padding:30px;margin-left:25%">
-    <%= f.label "Alright, sfd. Time for your close up. If you have team gear, put it on first to show your spirit!", style: 'font-size:20px' %><br />
-    <span>Click "Take Photo" below when you're ready.</span>
+  <div class="field"  style="background-color: white;width: 700px; margin: 30px auto;padding:37px 0px;margin-bottom:-25px">
+    <label style='font-size:20px;margin: 0px 40px;line-height:30px'>Alright, sfd. Time for your close up. If you have team gear, put it on first to show your spirit!"</label><br />
     <div style="text-align: center">
       <%= f.hidden_field :avatar %>
       <div id="my_camera" style="width: 100% !important;height: 500px; !important"></div>
       <%# <img src="/public/profile.png"> %>
-      <%= image_tag "profile.png", style: 'position: absolute;left: 27.5%;top: 24vh;height: 55.7%;width: 650px;' %>
-      <input type=button value="Take Snapshot" onClick="take_snapshot()">
+      <%= image_tag "profile.png", style: 'position: absolute;left: 30%;top: 282px;width: 662px;height: 488px;' %>
+      <input type=button value="Take Snapshot" onClick="take_snapshot()" style="padding: 10px 100px;font-size: 17px;margin-top: 10px;color: white;background-color: rgb(49,107,183);border:none;">
     </div>
   </div>
-  <div style="top: -5px;height: 30px;background: red;margin-left: 25%;width: 43.7%;">
-    <div style="text-align:right;display:flex;align-items:center;height:100%;flex-direction:row-reverse;;margin-right:20px">
-      <span  class="next" onclick="submitForm();">Submit</span>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
+    <div style="display:flex;align-items:center;height:100%;flex-direction:row-reverse;justify-content:space-between;">
+      <span class="next" onclick="showNext3(this);">Next</span>
     </div>
   </div>
 </div>
 
 <div class="parent4 hidden">
-  <div class="field" style="background-color: rgba(204,204,204,0.5);width: 40%; margin: 50vh 0px auto auto;padding:30px;margin-left:25%">
+  <div class="field" style="background-color: white;width: 700px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+    <%= f.label 'Lets get your photo connected', style: 'margin: auto 40px;font-size:25px'  %><br />
+    <div style="display:flex;margin: 10px 24px;">
+      <%= f.text_field :name, style: 'width: 90%;height: 30px;font-size: 20px;padding:4px', placeholder: 'FirstName' %>
+      <%= f.text_field :name, style: 'width: 90%;height: 30px;font-size: 20px;padding:4px;margin-left:10px' , placeholder: 'LastName' %>
+    </div>
+
+    <div style="display:flex;margin: 10px 24px;">
+      <%= f.text_field :name, style: 'width: 100%;height: 30px;font-size: 20px;padding:4px', placeholder: 'Enter your Email' %>
+    </div>
+
+    <div style="display:flex;margin: 10px 24px;">
+      <%= f.select :name,options_for_select([['Yes',1],['No',2],['But I would like to be.',3]]),{include_blank: 'Are you currently a seaon ticket holder?'}, { style: 'width: 100%;height: 43px;font-size: 20px;padding:4px', placeholder: 'Enter your Email' }%>
+    </div>
+  </div>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
+    <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
+      <span class="next" onclick="submitForm(this);">Submit</span>
+    </div>
+  </div>
+</div>
+
+<div class="parent4 hidden">
+  <div class="field" style="background-color: white;width: 40%; margin: 50vh 0px auto auto;padding:30px;margin-left:25%">
     <%= f.label "Thanks your data has been submitted", style: 'margin: auto 40px;font-size:20px' %><br />
   </div>
   <div style="top: -5px;height: 30px;background: red;margin-left: 25%;width: 43.7%;">
@@ -89,6 +115,12 @@
       $("#user_name").css('border', 'solid 1px red');
     }
   }
+
+  function showNext3(element){
+      $(element).closest('.parent3').hide();
+      $('.parent4').removeClass('hidden');
+  }
+
   function showNext2(element){
     if($('.radio').is(':checked')){
       $(element).closest('.parent2').hide();
@@ -105,6 +137,10 @@
       $('.radio').css('border','solid 1px red')
     }
     
+  }
+
+  function add_active_class(element){
+    $(element).closest('.p-radio').addClass('active-radio');
   }
 function take_snapshot(){
     Webcam.snap(function(data_uri) {
