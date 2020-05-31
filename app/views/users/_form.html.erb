@@ -1,8 +1,24 @@
 
 <%= image_tag "logo.png" , width: '300', height: '100'%>
 <%= form_for(@user) do |f| %>
-<div class="parent">
-  <div class="field" style="background-color: white;width: 700px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+
+<div class="parent0">
+  <div class="field" style="background-color: white;width: 700px; margin: 100px auto;padding:37px 0px;margin-bottom:0px">
+    <div style="text-align:center">
+      <%= image_tag 'logo.png', style: 'width:50%'%>
+      <h1 style='margin: auto 40px;font-size:25px'>Sample Form for Fan Cutout</h1>
+      <p style="font-size: 1.5em;padding: 0px 20px;">Hi there, please fill out and submit this form to have your stadium fan cutout made.</p>
+    </div>
+  </div>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
+    <div style="text-align:right;display:flex;align-items:center;justify-content:center;height:100%;flex-direction:row-reverse">
+      <span class="start" onclick="start(this);">Start</span>
+    </div>
+  </div>
+</div>
+
+<div class="parent hidden">
+  <div class="field" style="background-color: white;width: 700px; margin: 100px auto;padding:37px 0px;margin-bottom:0px">
     <%= f.label '⭕️🙌, Hi there! Whats your name?*', style: 'margin: auto 40px;font-size:25px' %><br />
     <label style="margin: 0px 40px;color: #8c8787;font-size: 16px;margin-bottom: 10px;">First Name:</label>
     <div style="text-align: center">
@@ -17,7 +33,7 @@
 </div>
 
 <div class="parent2 hidden">
-  <div class="field" style="background-color: white;width: 700px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+  <div class="field" style="background-color: white;width: 700px; margin: 100px auto;padding:37px 0px;margin-bottom:0px">
     <label style="margin: auto 40px;font-size:20px;font-size: 22px;line-height: 30px;">To upload your beautiful face, sfd, we're going to need access to your camera. Select select 'allow' on the next screen to use your camera.</span>
     <div class="p-radio">
       <div style="border: solid 1px black;margin-top: 10px;padding-bottom: 12px;cursor:pointer;border-radius:4px" class="rad-div" onclick="add_active_class(this)">
@@ -55,19 +71,95 @@
   <div class="field" style="background-color: white;width: 700px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
     <%= f.label 'Lets get your photo connected', style: 'margin: auto 40px;font-size:25px'  %><br />
     <div style="display:flex;margin: 10px 24px;">
-      <%= f.text_field :name, style: 'width: 90%;height: 30px;font-size: 20px;padding:4px', placeholder: 'FirstName' %>
-      <%= f.text_field :name, style: 'width: 90%;height: 30px;font-size: 20px;padding:4px;margin-left:10px' , placeholder: 'LastName' %>
+      <%= f.text_field :first_name, style: 'width: 90%;height: 30px;font-size: 20px;padding:4px', placeholder: 'FirstName' %>
+      <%= f.text_field :last_name, style: 'width: 90%;height: 30px;font-size: 20px;padding:4px;margin-left:10px' , placeholder: 'LastName' %>
     </div>
 
     <div style="display:flex;margin: 10px 24px;">
-      <%= f.text_field :name, style: 'width: 100%;height: 30px;font-size: 20px;padding:4px', placeholder: 'Enter your Email' %>
+      <%= f.text_field :email, style: 'width: 100%;height: 30px;font-size: 20px;padding:4px', placeholder: 'Enter your Email' %>
     </div>
 
     <div style="display:flex;margin: 10px 24px;">
-      <%= f.select :name,options_for_select([['Yes',1],['No',2],['But I would like to be.',3]]),{include_blank: 'Are you currently a seaon ticket holder?'}, { style: 'width: 100%;height: 43px;font-size: 20px;padding:4px', placeholder: 'Enter your Email' }%>
+      <%= f.select :holder,options_for_select([['Yes',1],['No',2],['But I would like to be.',3]]),{include_blank: 'Are you currently a seaon ticket holder?'}, { style: 'width: 100%;height: 43px;font-size: 20px;padding:4px', placeholder: 'Enter your Email' }%>
     </div>
   </div>
   <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
+    <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
+      <span class="next" onclick="showNext4(this);">Next</span>
+    </div>
+  </div>
+</div>
+
+<div class="parent5 hidden">
+  <div class="field" style="background-color: white;width: 855px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+    <%= f.label 'Where is your current seat so we can put your cut out there?', style: 'margin: auto 40px;font-size:25px'  %><br />
+    <div style="display:flex;margin: 10px 24px;">
+      <%= f.text_field :section, style: 'width: 100%;height: 30px;font-size: 20px;padding:4px', placeholder: 'Section' %>
+    </div>
+
+    <div style="display:flex;margin: 10px 24px;">
+      <%= f.text_field :row, style: 'width: 100%;height: 30px;font-size: 20px;padding:4px', placeholder: 'Row #' %>
+      <%= f.text_field :seat, style: 'width: 100%;height: 30px;font-size: 20px;padding:4px;margin-left:10px', placeholder: 'Seat #' %>
+    </div>
+  </div>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 855px;">
+    <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
+      <span class="next" onclick="showNext5(this);">Next</span>
+    </div>
+  </div>
+</div>
+
+<div class="parent6 hidden">
+  <div class="field" style="background-color: white;width: 855px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+    <%= f.label 'Do you want to sign up to join our Loyalty Program for special offers and early access to news as well?', style: 'margin: auto 40px;font-size:25px;line-height:30px'  %><br />
+    <div style="display:flex;margin: 10px 24px;justify-content:center">
+      <button onclick="return add_active(this)" style="cursor:pointer;padding: 10px 30px;background: white;border: solid 1px blue;border-radius: 5px;margin-right: 153px;">Yes, Treat Me Special</button>
+      <button onclick="return add_active(this)" style="cursor:pointer;background: white;border: solid 1px blue;border-radius: 5px;padding: 0px 39px;">No Thanks</button>
+    </div>
+  </div>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 855px;">
+    <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
+      <span class="next" onclick="showNext6(this);">Next</span>
+    </div>
+  </div>
+</div>
+
+<div class="parent7 hidden">
+  <div class="field" style="background-color: white;width: 855px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+    <label style='margin: auto 40px;font-size:25px;line-height:30px'>Description or terms and conditions. Blah, Blah, Blah...'</label><br />
+  </div>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 855px;">
+    <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
+      <span class="next" onclick="showNext7(this);">Next</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="parent8 hidden">
+  <div class="field" style="background-color: white;width: 855px; margin: 200px auto;padding:37px 0px;margin-bottom:0px">
+    <label style='margin: auto 40px;font-size:25px;line-height:30px'>Please choose your donation amount to get your order processed.</label><br />
+    <span style="margin: auto 40px;">Your purchase directly supported The Ohio State University and its Students.</span>
+    <div style="display:flex;justify-content:space-around;">
+      <div class="box" onclick="make_box_dark(this)">
+        <h1>10</h1>
+      </div>
+      <div class="box" onclick="make_box_dark(this)">
+        <h1>25</h1>
+      </div>
+      <div class="box" onclick="make_box_dark(this)">
+        <h1>50</h1>
+      </div>
+      <div class="box" onclick="make_box_dark(this)">
+        <h1>100</h1>
+      </div>
+    </div>
+
+    <div style="display:flex;margin: 10px 24px;">
+      <%= f.text_field :amount, style: 'width: 100%;height: 30px;font-size: 20px;padding:4px', placeholder: 'OR enter custom amount' %>
+    </div>
+  </div>
+  <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 855px;">
     <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
       <span class="next" onclick="submitForm(this);">Submit</span>
     </div>
@@ -91,11 +183,22 @@
 <script>
   function submitForm(event){
     n = $("#user_name").val();
+    fn = $("#user_first_name").val();
+    ln = $("#user_last_name").val();
+    email = $("#user_email").val();
+    holder = $("#user_holder").val();
+    section = $("#user_section").val();
+    row = $("#user_row").val();
+    seat = $("#user_seat").val();
+    special = $('.active-dark').html();
+    donation = $('.box-dark').find('h1').html();
+    amount = $("#user_amount").val();
     img = $("#my_camera>img").attr('src');
+    debugger
     $.ajax({
       'type': 'post',
       'url': '/users',
-      data: {name: n, avatar: img },
+      data: {name: n, avatar: img, first_name: fn, last_name: ln, email: email, holder: holder, section: section, row: row, seat: seat, special: special, donation: donation, amount: amount },
       success: function(data){
         $('.parent3').hide();
         $('.parent4').removeClass('hidden');
@@ -107,6 +210,16 @@
       }
     })
   }
+
+  function add_active(element){
+    
+    $('.active-dark').css('color','black');
+    $('.active-dark').removeClass('active-dark');
+    $(element).addClass('active-dark');
+    $(element).css('color','white');
+    event.preventDefault();
+    return false;
+  }
   function showNext1(element){
     if($("#user_name").val() != "" ){
       $(element).closest('.parent').hide();
@@ -116,11 +229,40 @@
     }
   }
 
+  function start(element){
+    $(element).closest('.parent0').hide();
+    $('.parent').removeClass('hidden');
+  }
+
   function showNext3(element){
       $(element).closest('.parent3').hide();
       $('.parent4').removeClass('hidden');
   }
 
+  function showNext4(element){
+      $(element).closest('.parent4').hide();
+      $('.parent5').removeClass('hidden');
+  }
+
+  function showNext5(element){
+      $(element).closest('.parent5').hide();
+      $('.parent6').removeClass('hidden');
+  }
+
+  function showNext6(element){
+    $(element).closest('.parent6').hide();
+    $('.parent7').removeClass('hidden');
+  }
+
+  function showNext7(element){
+    $(element).closest('.parent7').hide();
+    $('.parent8').removeClass('hidden');
+  }
+
+  function make_box_dark(element){
+    $('.box-dark').removeClass('box-dark');
+    $(element).addClass('box-dark');
+  }
   function showNext2(element){
     if($('.radio').is(':checked')){
       $(element).closest('.parent2').hide();

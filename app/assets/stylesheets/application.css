@@ -54,6 +54,14 @@
    color: #cecdcd !important;
  }
 
+ .start {
+  padding: 5px;
+  cursor: pointer;
+
+  color: white;
+  font-size: 20px;
+  margin-right: 22px;
+ }
  .prev:hover {
    color: white !important;
  }
@@ -63,5 +71,19 @@
  }
 
  .active-radio {
+   background-color: rgb(207, 229, 255);
+ }
+
+ .active-dark {
+   background-color: #1776eb !important;
+ }
+
+ .box {
+  border: solid 1px blue;
+  padding: 20px 38px;
+  cursor: pointer;
+ }
+
+ .box-dark {
    background-color: rgb(207, 229, 255);
  }

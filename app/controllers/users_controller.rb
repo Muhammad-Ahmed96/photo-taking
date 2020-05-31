@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(name: params[:name], avatar: params[:avatar])
+    @user = User.new(name: params[:name], avatar: params[:avatar], first_name: params[:first_name], last_name: params[:last_name], email: params[:email], holder: params[:holder], section: params[:section], row: params[:row], seat: params[:seat], special: params[:special], donation: params[:donation], amount: params[:amount])
 
     respond_to do |format|
       if @user.save

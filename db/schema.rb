@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_035116) do
+ActiveRecord::Schema.define(version: 2020_05_31_084259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2020_05_29_035116) do
     t.text "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "holder"
+    t.string "section"
+    t.string "row"
+    t.string "seat"
+    t.string "special"
+    t.string "donation"
+    t.string "amount"
   end
 
 end
