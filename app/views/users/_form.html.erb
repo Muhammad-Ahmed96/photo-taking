@@ -34,7 +34,7 @@
 
 <div class="parent2 hidden">
   <div class="field" style="background-color: white;width: 700px; margin: 100px auto;padding:37px 0px;margin-bottom:0px">
-    <label style="margin: auto 40px;font-size:20px;font-size: 22px;line-height: 30px;">To upload your beautiful face, sfd, we're going to need access to your camera. Select select 'allow' on the next screen to use your camera.</span>
+    <label style="margin: auto 40px;font-size:20px;font-size: 22px;line-height: 30px;">To upload your beautiful face,<span id="name1"></span>, we're going to need access to your camera. Select select 'allow' on the next screen to use your camera.</span>
     <div class="p-radio">
       <div style="border: solid 1px black;margin-top: 10px;padding-bottom: 12px;cursor:pointer;border-radius:4px" class="rad-div" onclick="add_active_class(this)">
         <input type="radio" class="radio" style="height: 20px;width: 20px;margin-top:10px"> Yes, Will do.
@@ -51,7 +51,7 @@
 
 <div class="parent3 hidden">
   <div class="field"  style="background-color: white;width: 700px; margin: 30px auto;padding:37px 0px;margin-bottom:-25px">
-    <label style='font-size:20px;margin: 0px 40px;line-height:30px'>Alright, sfd. Time for your close up. If you have team gear, put it on first to show your spirit!"</label><br />
+    <label style='font-size:20px;margin: 0px 40px;line-height:30px'>Alright, <span id="name2"></span>. Time for your close up. If you have team gear, put it on first to show your spirit!"</label><br />
     <div style="text-align: center">
       <%= f.hidden_field :avatar %>
       <div id="my_camera" style="width: 100% !important;height: 500px; !important"></div>
@@ -63,6 +63,7 @@
   <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
     <div style="display:flex;align-items:center;height:100%;flex-direction:row-reverse;justify-content:space-between;">
       <span class="next" onclick="showNext3(this);">Next</span>
+      <span class="prev" onclick="showNext2(this);">Previous</span>
     </div>
   </div>
 </div>
@@ -86,6 +87,7 @@
   <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 700px;">
     <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
       <span class="next" onclick="showNext4(this);">Next</span>
+      <span class="prev" onclick="showNext2(this);">Previous</span>
     </div>
   </div>
 </div>
@@ -105,6 +107,7 @@
   <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 855px;">
     <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
       <span class="next" onclick="showNext5(this);">Next</span>
+      <span class="prev" onclick="showNext2(this);">Previous</span>
     </div>
   </div>
 </div>
@@ -120,6 +123,7 @@
   <div style="top: -5px;height: 44px;background: red;margin: 0px auto;width: 855px;">
     <div style="text-align:right;display:flex;align-items:center;justify-content:space-between;height:100%;flex-direction:row-reverse">
       <span class="next" onclick="showNext6(this);">Next</span>
+      <span class="prev" onclick="showNext2(this);">Previous</span>
     </div>
   </div>
 </div>
@@ -165,17 +169,6 @@
     </div>
   </div>
 </div>
-
-<div class="parent4 hidden">
-  <div class="field" style="background-color: white;width: 40%; margin: 50vh 0px auto auto;padding:30px;margin-left:25%">
-    <%= f.label "Thanks your data has been submitted", style: 'margin: auto 40px;font-size:20px' %><br />
-  </div>
-  <div style="top: -5px;height: 30px;background: red;margin-left: 25%;width: 43.7%;">
-    <div style="text-align:right;display:flex;align-items:center;height:100%;flex-direction:row-reverse;;margin-right:20px">
-      <span  class="next" onclick="showNext2(this);">Next</span>
-    </div>
-  </div>
-</div>
   <!-- Other fields and submit button -->
 <% end %>
 
@@ -200,9 +193,9 @@
       'url': '/users',
       data: {name: n, avatar: img, first_name: fn, last_name: ln, email: email, holder: holder, section: section, row: row, seat: seat, special: special, donation: donation, amount: amount },
       success: function(data){
-        $('.parent3').hide();
-        $('.parent4').removeClass('hidden');
-        event.preventDefault();
+        $('.parent8').hide();
+        $('.parent9').removeClass('hidden');
+        // event.preventDefault();
         return false;
       },
       error: function(error){
@@ -224,6 +217,7 @@
     if($("#user_name").val() != "" ){
       $(element).closest('.parent').hide();
       $('.parent2').removeClass('hidden');
+      $("#name1").html($("#user_name").val());
     }else{
       $("#user_name").css('border', 'solid 1px red');
     }
@@ -259,6 +253,11 @@
     $('.parent8').removeClass('hidden');
   }
 
+  function showNext8(element){
+    $(element).closest('.parent8').hide();
+    $('.parent9').removeClass('hidden');
+  }
+
   function make_box_dark(element){
     $('.box-dark').removeClass('box-dark');
     $(element).addClass('box-dark');
@@ -266,6 +265,7 @@
   function showNext2(element){
     if($('.radio').is(':checked')){
       $(element).closest('.parent2').hide();
+      $("#name2").html($("#user_name").val());
     $('.parent3').removeClass('hidden');
       Webcam.set({
       width: 320,

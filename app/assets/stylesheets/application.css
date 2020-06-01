@@ -15,7 +15,13 @@
  */
 
  body {
-   background-color: rgba(218, 214,214, 0.5);
+   /* background-color: rgba(218, 214,214, 0.5); */
+   background-image: url('backgroundimage.jpeg');
+   background-size: cover;
+ }
+
+ td {
+   border: solid 1px black;
  }
 
 .hidden {
@@ -87,3 +93,10 @@
  .box-dark {
    background-color: rgb(207, 229, 255);
  }
+
+
+ /* video {
+   background-image: url('profile.png');
+   background-size: cover;
+   width: 100%;
+ } */

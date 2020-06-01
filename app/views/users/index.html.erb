@@ -2,23 +2,44 @@
 
 <h1>Users</h1>
 
-<table>
+<table style="background-color:white;border:solid 1px black;width:100%">
   <thead>
     <tr>
       <th>Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Ticket Holder</th>
+      <th>Section</th>
+      <th>Row</th>
+      <th>Seat</th>
+      <th>Treatment</th>
+      <th>Donation</th>
+      <th>Amount</th>
       <th>Avatar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody style="border:solid 1px black">
     <% @users.each do |user| %>
-      <tr>
+      <tr style="border:solid 1px black">
         <td><%= user.name %></td>
-        <td><%= user.avatar %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.holder %></td>
+        <td><%= user.section %></td>
+        <td><%= user.row %></td>
+        <td><%= user.seat %></td>
+        <td><%= user.special %></td>
+        <td><%= user.donation %></td>
+        <td><%= user.amount %></td>
+        <td>
+          <div class="image" style="width:300px;height:300px;background-image: url(<%= user.avatar %>);background-size:cover">
+            <%= image_tag "profile.png", style: "width:100%;height:100%"%>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
