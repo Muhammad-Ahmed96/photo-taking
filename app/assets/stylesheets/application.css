@@ -18,8 +18,13 @@
    /* background-color: rgba(218, 214,214, 0.5); */
    background-image: url('backgroundimage.jpeg');
    background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
  }
 
+ .no-flex {
+   display: flex;
+ }
  td {
    border: solid 1px black;
  }
@@ -39,7 +44,7 @@
  }
 
  #my_camera img {
-  width: 93%;
+  width: 83%;
   height: 488px;
  }
 
@@ -93,10 +98,214 @@
  .box-dark {
    background-color: rgb(207, 229, 255);
  }
+.field1 {
+  background-color: white;padding:37px 0px;margin-bottom:0px
+}
+
+.p-red1 {
+  top: -5px;height: 44px;background: red;margin: 0px auto;
+}
+
+.mt-sm-1 {
+  margin-top: 3rem !important;
+}
+
+.margin-23-auto{
+  margin: 0px 40px;
+}
+
+.profile_img {
+  position: absolute;
+    left: 85px;
+    top: 98px;
+    width: 682px;
+    height: 488px;
+    
+}
+
+.special_btn {
+  cursor: pointer;
+  padding: 10px 30px;
+  background: white;
+  border: 1px solid blue;
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+  margin-top: 20px;
+ }
+
+ @media(max-width: 411px) {
+
+  .no-flex {
+    display: inline-block;
+  }
+
+  .logo {
+    display: none;
+  }
+   .field1{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+   }
+   .p-red1 {
+     width: 100%;
+   }
+
+   .profile_img {
+      position: absolute;
+      /* left: 30%; */
+      /* top: 282px; */
+      /* width: 662px; */
+      top: 285px;
+      width: 320px;
+      left: 45px;
+      height: 239px;
+    }
+
+    video {
+      width: 320px !important;
+      height: 340px !important;
+    }
+
+    #my_camera {
+      height: 305px !important;
+    }
+   .row1 {
+     margin-top: 0px !important;
+   }
+
+   .mt-sm-1 {
+     margin-top: 1rem !important;
+   }
+
+   .mt-5 {
+     margin-top: 0px !important;
+   }
+
+   .margin-23-auto {
+     margin: 0px 23px;
+   }
+
+   #my_camera img {
+    width: 83%;
+    margin-top: 50px;
+    height: 238px !important;
+   }
+
+   .special_btn {
+    cursor: pointer;
+    padding: 10px 30px;
+    background: white;
+    border: 1px solid blue;
+    border-radius: 5px;
+    width: 100%;
+    color: blue;
+    margin-top: 20px;
+   }
+
+   .box {
+    border: solid 1px blue;
+    padding: 20px 38px;
+    cursor: pointer;
+    width: 134px;
+    margin-top: 13px;
+   }
+
+   .flex-column {
+    flex-direction: column;
+    align-items: center;
+   }
+ }
 
 
- /* video {
-   background-image: url('profile.png');
-   background-size: cover;
-   width: 100%;
- } */
+ @media(max-width: 375px){
+
+  video {
+    height: 273px !important;
+    width: 93.5% !important;
+  }
+
+  .no-flex {
+    display: inline-block;
+  }
+
+  .profile_img {
+    position: absolute;
+    /* left: 30%; */
+    /* top: 282px; */
+    /* width: 662px; */
+    top: 248px;
+    width: 320px;
+    left: 29px;
+    height: 239px;
+  }
+
+
+
+  /*  */
+
+
+  .logo {
+    display: none;
+  }
+   .field1{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+   }
+   .p-red1 {
+     width: 100%;
+   }
+    
+
+    #my_camera {
+      height: 305px !important;
+    }
+   .row1 {
+     margin-top: 0px !important;
+   }
+
+   .mt-sm-1 {
+     margin-top: 1rem !important;
+   }
+
+   .mt-5 {
+     margin-top: 0px !important;
+   }
+
+   .margin-23-auto {
+     margin: 0px 23px;
+   }
+
+   #my_camera img {
+    width: 93%;
+    /* height: 488px; */
+    height: 241px;
+    margin-top: 16px !important;
+   };
+
+   .special_btn {
+    cursor: pointer;
+    padding: 10px 30px;
+    background: white;
+    border: 1px solid blue;
+    border-radius: 5px;
+    width: 100%;
+    color: blue;
+    margin-top: 20px;
+   }
+
+   .box {
+    border: solid 1px blue;
+    padding: 20px 38px;
+    cursor: pointer;
+    width: 134px;
+    margin-top: 13px;
+   }
+
+   .flex-column {
+    flex-direction: column;
+    align-items: center;
+   }
+}
