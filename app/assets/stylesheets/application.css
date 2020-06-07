@@ -134,7 +134,7 @@
   margin-top: 20px;
  }
 
- @media(max-width: 411px) {
+ @media only screen and (max-width: 600px) {
 
   .no-flex {
     display: inline-block;
@@ -157,14 +157,14 @@
       /* left: 30%; */
       /* top: 282px; */
       /* width: 662px; */
-      top: 285px;
+      top: 37%;
       width: 320px;
       left: 45px;
       height: 239px;
     }
 
     video {
-      width: 320px !important;
+      width: 332px !important;
       height: 340px !important;
     }
 
@@ -235,7 +235,7 @@
     /* left: 30%; */
     /* top: 282px; */
     /* width: 662px; */
-    top: 248px;
+    top: 37%;
     width: 320px;
     left: 29px;
     height: 239px;

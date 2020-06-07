@@ -226,6 +226,9 @@
   <% end %>
 </div>
 <script>
+  $(document).ready(function(){
+    $(this).scrollTop(0);
+  });
   function submitForm(event){
     n = $("#user_name").val();
     fn = $("#user_first_name").val();
